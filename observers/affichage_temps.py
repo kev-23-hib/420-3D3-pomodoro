@@ -13,6 +13,9 @@ class AffichageTemps(Observateur):
         # Récupérez temps_restant depuis sujet.get_donnees()
         sujet.get_donnes().get("temps_restant")
         # Calculez minutes et secondes
-        
+        minutes = self.temps_restant // 60
+        secondes = self.temps_restant % 60
         # Mettez à jour le label au format "MM:SS"
-        pass
+        self.label_temps.config(text=f"{minutes:02d}:{secondes:02d}")
+        
+        
