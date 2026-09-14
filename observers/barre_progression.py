@@ -11,6 +11,7 @@ class BarreProgression(Observateur):
     def actualiser(self, sujet) -> None:
         # À compléter :
         # Récupérez temps_restant et duree_totale depuis sujet.get_donnees()
+        self.get_donnes().get()
         # Calculez la largeur proportionnelle (300 * temps_restant / duree_totale)
         # Effacez le canvas et dessinez le rectangle
         pass

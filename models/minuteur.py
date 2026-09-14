@@ -68,7 +68,7 @@ class Minuteur(Sujet):
         """Réinitialise le minuteur à l'état initial."""
         # À compléter
         # N'oubliez pas de notifier les observateurs à la fin
-        pass
+        self.notifier()
 
 
     
@@ -76,4 +76,10 @@ class Minuteur(Sujet):
     def get_donnees(self) -> dict:
         # À compléter : retourner un dictionnaire avec :
         # temps_restant, etat, en_pause, sessions_completees, duree_totale
-        pass
+        return {
+            "temps_restant": self._temps_restant,
+            "etat": self._etat,
+            "en_pause": self._en_pause,
+            "sessions_completees": self._sessions_completees,
+            "duree_totale": DUREE_TRAVAIL if self._etat == "Travail" else DUREE_PAUSE
+        }
