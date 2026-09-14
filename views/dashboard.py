@@ -25,13 +25,18 @@ class Dashboard(tk.Tk):
     def _creer_observateurs(self) -> None:
         # À compléter :
         # Instanciez AffichageEtat, AffichageTemps, BarreProgression,
+        self._abonner_observateurs = AffichageEtat(self)
+        self._abonner_observateurs = AffichageTemps(self)
+        self._abonner_observateurs = BarreProgression(self)
         # CompteurSessions et LoggerSession
-        pass
+        self._abonner_observateurs = CompteurSessions(self)
+        self._abonner_observateurs = LoggerSession(self)
 
     def _abonner_observateurs(self) -> None:
         # À compléter :
         # Abonnez tous les observateurs au minuteur
-        pass
+        for observateur in [self._abonner_observateurs]:
+            self._minuteur.abonner(observateur)
 
     def _creer_boutons(self) -> None:
         frame = tk.Frame(self)
